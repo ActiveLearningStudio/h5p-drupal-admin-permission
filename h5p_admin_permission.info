@@ -1,0 +1,6 @@
+; @file
+;  h5p_admin_permission.info ini file
+;  Contains general information about the h5p admin persmission Drupal module.
+name = H5P Admin Permission
+description = "Adds an administer H5P permission"
+core = 7.x

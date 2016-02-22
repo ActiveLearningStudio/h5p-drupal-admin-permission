@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ *  h5p_admin_permission.module php file
+ *  Adds an administer H5P permission
+ */
+
+/**
+ * Implements hook_permission
+ */
+function h5p_admin_permission_permission() {
+   return array(
+    'administer h5p' => array(
+      'title' => t('Administer H5P'),
+      'description' => t('Perform administration tasks for H5P.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu_alter
+ */
+function h5p_admin_permission_menu_alter(&$items) {
+  foreach($items as $item) {
+    if (isset($item['file']) && $item['file'] === 'h5p.admin.inc') {
+      $item['access arguments'] = array('administer h5p');
+    }
+  }
+}
